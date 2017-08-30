@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Airbnb profitability</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <!-- normalize stylesheet -->
+    <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/normalize.css">
+
+    <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/main.css">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+
+  </head>
+
+  <body>
+    <div id="locationField">
+      <input id="autocomplete" placeholder="Enter your address"
+             onFocus="geolocate()" type="text"></input>
+    </div>
+
+    <table id="address">
+      <tr>
+        <td class="label">Street address</td>
+        <td class="slimField"><input class="field" id="route"
+              disabled="true"></input></td>
+        <td class="wideField"><input class="field" id="street_number"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">City</td>
+        <td class="wideField" ><input class="field" id="locality"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">District</td>
+        <td class="slimField"><input class="field"
+              id="administrative_area_level_1" disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Country</td>
+        <td class="wideField" colspan="1"><input class="field"
+              id="country" disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Long-term cost</td>
+        <td class="slimField"><input class="field"
+              id="long_term" ></input></td>
+      </tr>
+    </table>
+    <script src="app/assets/javascripts/autocomplete.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyrs9of3ZsEffdTYrjtpR70xWQXk1XSiA&libraries=places&callback=initAutocomplete"
+        async defer></script>
+  </body>
+</html>
