@@ -41,13 +41,12 @@
         <td class="wideField" colspan="1"><input class="field"
               id="country" disabled="true"></input></td>
       </tr>
-      <tr>
-        <td class="label">Long-term cost</td>
-        <td class="slimField"><input class="field"
-              id="long_term" ></input></td>
-      </tr>
     </table>
+    <%= render 'long_term' %>
+
+    <!--script for autocompletion-->
     <script src="app/assets/javascripts/autocomplete.js"></script>
+    <!--googleapis-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyrs9of3ZsEffdTYrjtpR70xWQXk1XSiA&libraries=places&callback=initAutocomplete"
         async defer></script>
   </body>
