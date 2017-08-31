@@ -1,0 +1,11 @@
+<table id="address">
+  <tr>
+    <td class="label">Long-term cost</td>
+    <td class="wideField"><input class="field"
+          id="long_term" ></input></td>
+
+      <%= form_for(:calculator) do |f| %>
+      <%= f.hidden_field :long_term_rent %>
+      <% end %>
+  </tr>
+</table>
