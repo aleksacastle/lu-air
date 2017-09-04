@@ -2,29 +2,33 @@ class ScrapersController < ApplicationController
   attr_accessor :country, :city, :street, :page, :long_term_rent
 
   def new
-    @scraper = Scraper.new(:country, :city, :street)
+    @scraper = Scraper.new
   end
 
   def create
-    @scraper = Scraper.new(:country, :city, :street)
-    if @scraper.save
-      render show
-    else
-      render new
-    end
+    # binding.pry
 
-    # @airbnb_price = @scraper.get_price
+    @scraper = Scraper.new(scraper_params)
+    # airbnb_price
+    @airbnb_price = @scraper.get_price
+    @result = @airbnb_price - params[:scraper][:long_term_rent].to_i
+    render "show"
   end
 
   def show
-    @airbnb_price = @scraper.get_price
 
-    @result = @airbnb_price - @long_term_rent
   end
-  
+
   private
 
+  def airbnb_price
+    @airbnb_price = @scraper.get_price
+
+    @result = @airbnb_price - @long_term_rent.to_i
+    render "show"
+  end
+
   def scraper_params
-    params.require(Scraper.new).permit(:country, :city, :street, :long_term_rent)
+    params.require(:scraper).permit(:country, :city, :street, :long_term_rent)
   end
 end

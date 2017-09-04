@@ -3,24 +3,24 @@ require 'open-uri'
 
 # class for scraping given address on airbnb page and fetching average price
 class Scraper
-  attr_accessor :country, :city, :street, :page, :long_term_rent, :currency
+  attr_accessor :country, :city, :street, :page, :currency
 
   BASE_URL = 'https://airbnb.com/s/'.freeze
   GUESTS = '/?guests=2'.freeze
   MONTH = 30.freeze
 
-  def initialize(country, city, street)
-    @country = country
-    @city = city
-    @street = street
+  def initialize(hash)
+    @country = hash[:country]
+    @city = hash[:city]
+    @street = hash[:street]
+    @currency = currency
     @url = BASE_URL +
-           street.to_s + '--' + city.to_s + '--' + country.to_s +
+           @street.gsub(/\s/,"-") + '--' + @city.gsub(/\s/,"-") + '--' + @country.gsub(/\s/,"-") +
            GUESTS
   end
 
   def get_price
     page = Nokogiri::HTML(open(@url, 'User-Agent' => "Ruby/#{RUBY_VERSION}"))
-  rescue
 
     # Scrape the max number of pages and store in max_page variable
     page_numbers = []
