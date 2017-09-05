@@ -1,11 +1,12 @@
-
-<% if @result < 0 %>
-  <p>"You should better consider long-term rentals!"</p>
+<div>
+  <% if @result < 0 %>
+    <p>You should better consider long-term rentals!</p>
+    <br>
+    <%="You monthly loss will be #{@result}#{@currency}"%>
+  <% else %>
+    <p>Congratulations! Your cooperation with Airbnb will be lucrative!</p>
+    <%= "You monthly profit will be #{@result}#{@currency}"%>
+  <% end %>
   <br>
-  <%="You loss will be #{@result}"%>
-<% else %>
-  <p>"Congratulations! Your cooperation with Airbnb will be lucrative!"</p>
-  <%= "You profit will be #{@result}"%>
-<% end %>
-<br>
-<%= link_to 'Check another address', new_scraper_path %>
+  <%= link_to 'Check another address', scrapers_path %>
+</div>

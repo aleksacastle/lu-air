@@ -13,11 +13,11 @@
     text-align: right;
     font-weight: bold;
     width: 100px;
-    color: #303030;
+    color: #fff;
   }
   #address {
-    border: 1px solid #000090;
-    background-color: #f0f0ff;
+    border: 1px solid #fff;
+    background-color: #fff;
     width: 480px;
     padding-right: 2px;
   }
@@ -36,4 +36,7 @@
   #locationField {
     height: 20px;
     margin-bottom: 2px;
+  }
+  .invisible {
+    border-style: none
   }

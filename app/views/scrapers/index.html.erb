@@ -2,6 +2,7 @@
   <input id="autocomplete" placeholder="Enter your address"
          onFocus="geolocate()" type="text"></input>
 </div>
+
 <%= form_for :scraper, method: "post" do |f|%>
   <%= f.label "Street address"%>
   <%= f.text_field :street, placeholder: "Street", id: 'route'  %>
@@ -13,35 +14,17 @@
   <%= f.text_field :long_term_rent  %>
   <%= f.submit("Show") %>
 <% end %>
-<table id="address">
-  <tr>
-    <td class="label">Street address</td>
-    <td class="slimField">
-      <input class="field" name="scraper[street]" id="route"
-          disabled="true">
-        </input>
-        </td>
-    <td class="wideField"><input class="field"  id="street_number"
-          disabled="true"></input></td>
-  </tr>
-  <tr>
-    <td class="label">City</td>
-    <td class="wideField" ><input class="field" name="scraper[city]" id="locality"
-          disabled="true"></input></td>
-  </tr>
-  <tr>
-    <td class="label">District</td>
-    <td class="slimField"><input class="field"
-          id="administrative_area_level_1" disabled="true"></input></td>
-  </tr>
-  <tr>
-    <td class="label">Country</td>
-    <td class="wideField" colspan="1"><input class="field" name="scraper[country]"
-          id="country" disabled="true"></input></td>
-  </tr>
 
-</table>
+
+<!--autocomplete HTML-->
+<input class="invisible" id="route"></input>
+<input class="invisible" id="street_number"></input>
+<input class="invisible" id="locality"></input>
+<input class="invisible" id="administrative_area_level_1"></input>
+<input class="invisible" id="country" ></input>
+
+<!--autocomplete script-->
 <script src="app/assets/javascripts/autocomplete.js"></script>
 <!--googleapis-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyrs9of3ZsEffdTYrjtpR70xWQXk1XSiA&libraries=places&callback=initAutocomplete"
-    async defer></script>
+async defer></script>

@@ -6,7 +6,6 @@ class ScrapersController < ApplicationController
   def create
     @scraper = Scraper.new(scraper_params)
     airbnb_price(@scraper)
-
     render "show"
   end
 
